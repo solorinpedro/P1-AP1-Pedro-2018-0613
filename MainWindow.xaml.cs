@@ -1,4 +1,5 @@
-﻿using System;
+﻿using P1_AP1_Pedro_2018_0613.Entidades;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,8 +28,8 @@ namespace P1_AP1_Pedro_2018_0613
 
         private void AportesName_Click(object sender, RoutedEventArgs e)
         {
-            rAportes registro = new rAportes();
-            rAportes.Show();
+            rAportes aporte = new rAportes()
+            aporte.Show();
         }
     }
 }

@@ -20,11 +20,11 @@ namespace P1_AP1_Pedro_2018_0613.UI.Registros
     /// <summary>
     /// Interaction logic for rRegistro.xaml
     /// </summary>
-    public partial class rRegistro : Window
+    public partial class rAportes : Window
     {
         private Aportes Aporte = new Aportes();
 
-        public rRegistro()
+        public rAportes()
         {
             InitializeComponent();
             this.DataContext = Aporte;
