@@ -13,7 +13,7 @@
                     <MenuItem x:Name="AportesName" Header="Aportes" Click="AportesName_Click">
 
                     </MenuItem>
-                    <MenuItem x:Name="Consultar" Header ="Consultas">
+                    <MenuItem x:Name="Consultar" Header ="Consultas" Click="Consultar_Click">
                     </MenuItem>
                 </MenuItem>
             </Menu>
