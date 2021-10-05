@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace P1_AP1_Pedro_2018_0613.DAL
 {
-    public  class Contexto : DbContext 
+    public class Contexto : DbContext 
     {
         public DbSet<Aportes> Aportes { get; set; }
 
