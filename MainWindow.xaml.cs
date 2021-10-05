@@ -26,5 +26,11 @@ namespace P1_AP1_Pedro_2018_0613
         {
             InitializeComponent();
         }
+
+        private void AportesName_Click(object sender, RoutedEventArgs e)
+        {
+            rAportes aporte = new rAportes();
+            aporte.Show();
+        }
     }
 }
