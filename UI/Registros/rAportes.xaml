@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P1_AP1_Pedro_2018_0613.UI.Registros"
         mc:Ignorable="d"
-        Title="Registro de Aportes" Height="360" Width="400">
+        Title="rAportes" Height="360" Width="400">
     <Grid>
         <StackPanel Orientation="Vertical" Margin="5">
             <StackPanel>

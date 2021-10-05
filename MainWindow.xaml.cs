@@ -1,4 +1,5 @@
 ﻿using P1_AP1_Pedro_2018_0613.Entidades;
+using P1_AP1_Pedro_2018_0613.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,12 +25,6 @@ namespace P1_AP1_Pedro_2018_0613
         public MainWindow()
         {
             InitializeComponent();
-        }
-
-        private void AportesName_Click(object sender, RoutedEventArgs e)
-        {
-            rAportes aporte = new rAportes()
-            aporte.Show();
         }
     }
 }
