@@ -23,6 +23,7 @@ namespace P1_AP1_Pedro_2018_0613
         public MainWindow()
         {
             InitializeComponent();
-        }
+        }   
+       
     }
 }

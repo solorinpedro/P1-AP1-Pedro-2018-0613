@@ -13,7 +13,8 @@
                     <MenuItem x:Name="AportesName" Header="Aportes" Click="AportesName_Click">
 
                     </MenuItem>
-                    <MenuItem Header ="Consultas"></MenuItem>
+                    <MenuItem x:Name="Consultar"  Header ="Consultas">
+                    </MenuItem>
                 </MenuItem>
             </Menu>
         </StackPanel>
