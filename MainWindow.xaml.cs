@@ -23,7 +23,12 @@ namespace P1_AP1_Pedro_2018_0613
         public MainWindow()
         {
             InitializeComponent();
-        }   
-       
+        }
+
+        private void AportesName_Click(object sender, RoutedEventArgs e)
+        {
+            rAportes registro = new rAportes();
+            rAportes.Show();
+        }
     }
 }
