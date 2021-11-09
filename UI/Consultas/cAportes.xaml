@@ -5,36 +5,54 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P1_AP1_Pedro_2018_0613.UI.Consultas"
         mc:Ignorable="d"
-        Title="Consultas de Aportes" Height="490" Width="460">
+        Title="Consultas de Aportes" Height="450" Width="750">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="10,10,10,10">
-            <StackPanel Orientation="Horizontal">
-                <Label Content="Desde"></Label>
-                <Label Content="Hasta" Margin="70,0,0,0"></Label>
+        <StackPanel Orientation="Vertical" Margin="10, 5, 10, 0">
+            <StackPanel Orientation="Horizontal" Height="58">
+                <StackPanel>
+                    <Label Content="Desde:"/>
+                    <DatePicker x:Name="DesdeDataPicker"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical" Margin="5,0">
+                    <Label Content="Hasta:"/>
+                    <DatePicker x:Name="HastaDataPicker" />
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <Label Content="Filtro: "/>
+                    <ComboBox x:Name="FiltroComboBox" Width="100">
+                        <ComboBoxItem Content="Persona"/>
+                        <ComboBoxItem Content="Concepto"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Margin="5,0">
+                    <Label Content="Criterio: "/>
+                    <TextBox x:Name="CriterioTextBox" Width="100"/>
+                </StackPanel>
+                <Button x:Name="BuscarButton" Height="34" Width="93" Click="BuscarButton_Click">
+                    <StackPanel Orientation="Horizontal">
+                        <Image Source="/Resources/Buscar.png" />
+                        <Label Content="Buscar"/>
+                    </StackPanel>
+                </Button>
+            </StackPanel>
+            <StackPanel HorizontalAlignment="Left">
+                <DataGrid x:Name="DatosDataGrid" Height="240" Width="700" AutoGenerateColumns="False">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Aporte Id" Binding="{Binding AporteId}"/>
+                        <DataGridTextColumn Header="Fecha" Binding="{Binding Fecha}"/>
+                        <DataGridTextColumn Header="Persona" Binding="{Binding Persona}"/>
+                        <DataGridTextColumn Header="Concepto" Binding="{Binding Concepto}"/>
+                        <DataGridTextColumn Header="Monto" Binding="{Binding Monto}"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Label Content="Cantidad" />
+                <Label Content="Total" Margin="200,0,0,0"/>
             </StackPanel>
             <StackPanel Orientation="Horizontal">
-                <DatePicker x:Name="desdeDatePicker" Width="100"></DatePicker>
-                <DatePicker x:Name="hastaDatePicker" Width="100" Margin="10,0,0,0"></DatePicker>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
-                <Label Content="Campo a filtrar"></Label>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <ComboBox x:Name="filtroComboBox" Width="100">
-                    <ComboBoxItem Content="Persona"></ComboBoxItem>
-                    <ComboBoxItem Content="Concepto"></ComboBoxItem>
-                </ComboBox>
-                <TextBox x:Name="filtroTextBox" Margin="10,0,0,0" Height="25" Width="90" TextChanged="filtroTextBox_TextChanged"></TextBox>
-                <Button x:Name="BotonBuscar" Content="Buscar" Margin="5,0" Click="BotonBuscar_Click"/>
-            </StackPanel>
-            <StackPanel HorizontalAlignment="Left" Margin="0,10,0,0">
-                <DataGrid x:Name="DatosDataGrid" Height="290" Width="435"></DataGrid>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
-                <Label Content="Conteo"></Label>
-                <TextBox x:Name="conteoTextBox" Height="25" Width="70" IsEnabled="False"></TextBox>
-                <Label Content="Total" Margin="200,0,0,0" ></Label>
-                <TextBox x:Name="totalTextBox" Height="25" Width="70" IsEnabled="False"></TextBox>
+                <TextBlock x:Name="CantidadTextBlock" Height="30" Width="50" Margin="10"/>
+                <TextBlock x:Name="TotalTextBlock" Height="30" Width="50" Margin="210, 10"/>
             </StackPanel>
 
         </StackPanel>

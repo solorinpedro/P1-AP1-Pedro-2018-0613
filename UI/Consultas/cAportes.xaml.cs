@@ -27,43 +27,44 @@ namespace P1_AP1_Pedro_2018_0613.UI.Consultas
         {
             InitializeComponent();
         }
-           
-        private void BotonBuscar_Click(object sender, RoutedEventArgs e)
+        public static string Cantidad = "";
+        public static string Total = "";
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
         {
             var listado = new List<Aportes>();
-
-
-            if (filtroComboBox.Text.Trim().Length > 0)
+            if (CriterioTextBox.Text.Trim().Length > 0)
             {
-                switch (filtroComboBox.SelectedIndex)
+                switch (FiltroComboBox.SelectedIndex)
                 {
-                    case 0:
-                        listado = AportesBLL.GetList(e => e.Persona.ToLower().Contains(filtroComboBox.Text.ToLower()));
+                    case 0: //Persona
+                        listado = AportesBLL.GetList(e => e.Persona.ToLower().Contains(CriterioTextBox.Text.ToLower()));
                         break;
-
-
-
-                    case 1:
-                        listado = AportesBLL.GetList(e => e.Concepto.ToLower().Contains(filtroComboBox.Text.ToLower()));
+                    case 1: //Concepto
+                        listado = AportesBLL.GetList(e => e.Concepto.ToLower().Contains(CriterioTextBox.Text.ToLower()));
                         break;
                 }
             }
             else
             {
-                listado = AportesBLL.GetList(c => true);
+                listado = AportesBLL.GetList(e => true);
             }
 
-            if (desdeDatePicker.SelectedDate != null)
-                listado = AportesBLL.GetList(c => c.Fecha.Date >= desdeDatePicker.SelectedDate);
+            if (DesdeDataPicker.SelectedDate != null)
+                listado = AportesBLL.GetList(c => c.Fecha.Date >= DesdeDataPicker.SelectedDate);
 
-
-            if (hastaDatePicker.SelectedDate != null)
-                listado = AportesBLL.GetList(c => c.Fecha.Date <= hastaDatePicker.SelectedDate);
+            if (HastaDataPicker.SelectedDate != null)
+                listado = AportesBLL.GetList(c => c.Fecha.Date <= HastaDataPicker.SelectedDate);
 
             DatosDataGrid.ItemsSource = null;
             DatosDataGrid.ItemsSource = listado;
+
+            Cantidad = listado.Count().ToString();
+            Total = listado.Sum(x => x.Monto).ToString();
+            CantidadTextBlock.Text = Cantidad;
+            TotalTextBlock.Text = Total;
         }
     }
 }
-    
+
+
 

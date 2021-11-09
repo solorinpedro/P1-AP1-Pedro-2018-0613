@@ -28,80 +28,83 @@ namespace P1_AP1_Pedro_2018_0613.UI.Registros
             InitializeComponent();
             this.DataContext = Aporte;
         }
-
-        private void BotonBuscar_Click(object sender, RoutedEventArgs e)
-        {
-            {
-                var encontradoo = AportesBLL.Buscar(Utilidades.ToInt(AporteIdTextBox.Text));
-
-                if (encontradoo != null)
-                {
-                    this.Aporte = encontradoo;
-                }
-                else
-                {
-                    this.Aporte = new Aportes();
-                    MessageBox.Show("No encontrado", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Warning);
-                }
-                this.DataContext = this.Aporte;
-            }
-        }
-
-        private void BotonNuevo_Click(object sender, RoutedEventArgs e)
-        {
-            Clean();
-        }
-
-        private void BotonGuardar_Click(object sender, RoutedEventArgs e)
-        {
-            if (!Validar())
-                return;
-
-            bool paso = AportesBLL.Guardar(this.Aporte);
-
-            if (paso)
-            {
-                Clean();
-                MessageBox.Show("Transaccion Exitosa!", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-
-            }
-            else
-                MessageBox.Show("Transaccion Fallida!", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-        }
-
-        private void BotonEliminar_Click(object sender, RoutedEventArgs e)
-        {
-            if (AportesBLL.Eliminar(Utilidades.ToInt(AporteIdTextBox.Text)))
-            {
-                Clean();
-                MessageBox.Show("Registro Eliminado!", "Exito",
-                    MessageBoxButton.OK, MessageBoxImage.Information);
-            }
-            else
-            {
-                MessageBox.Show("No Fue Posible Eliminar el Registro! :(", "Fallo",
-                    MessageBoxButton.OK, MessageBoxImage.Error);
-            }
-        }
-        private void Clean()
+        public void Limpiar()
         {
             this.Aporte = new Aportes();
-            this.DataContext = this.Aporte;
+            this.DataContext = Aporte;
         }
         private bool Validar()
         {
             bool esValido = true;
 
-            if (AporteIdTextBox.Text.Length == 0)
+            if (FechaDatePicker.Text.Length == 0)
             {
                 esValido = false;
-                MessageBox.Show("Favor de llenar todo los campo", "Error",
+                MessageBox.Show("Ha ocurrido un error, inserte la fecha", "Error", 
                     MessageBoxButton.OK, MessageBoxImage.Warning);
             }
+            if (PersonaTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ha ocurrido un error, inserte el nombre de la persona", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            if (ConceptoTextBox.Text.Length == 0)
+            {
+                esValido = false;
+                MessageBox.Show("Ha ocurrido un error, inserte el concepto", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+
             return esValido;
+        }
+        private void BuscarButton_Click(object sender, RoutedEventArgs e)
+        {
+            var aportes = AportesBLL.Buscar(Utilidades.ToInt(IdTextBox.Text));
+            if (aportes != null)
+            {
+                this.Aporte = aportes;
+            }
+            else
+            {
+                this.Aporte = new Aportes();
+                MessageBox.Show("No se ha encontrado", "Error", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            this.DataContext = this.Aporte;
+        }
+
+        private void NuevoButton_Click(object sender, RoutedEventArgs e)
+        {
+            Limpiar();
+        }
+
+        private void GuardarButton_Click(object sender, RoutedEventArgs e)
+        {
+            var paso = AportesBLL.Guardar(this.Aporte);
+            if (paso)
+            {
+                Limpiar();
+                MessageBox.Show("Se ha guardado exitosamente", "Exito", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se ha guardado exitosamente", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+
+        private void EliminarButton_Click(object sender, RoutedEventArgs e)
+        {
+            if (AportesBLL.Eliminar(Utilidades.ToInt(IdTextBox.Text)))
+            {
+                Limpiar();
+                MessageBox.Show("Se ha eliminado exitosamente", "Exito", 
+                    MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se ha eliminado exitosamente", "Error", 
+                    MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -5,42 +5,57 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P1_AP1_Pedro_2018_0613.UI.Registros"
         mc:Ignorable="d"
-        Title="rAportes" Height="360" Width="400">
+        Title="rAportes" Height="390" Width="350">
     <Grid>
-        <StackPanel Orientation="Vertical" Margin="5">
-            <StackPanel>
-                <Label Content="Aporte Id"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="AporteIdTextBox" Height="25" Width="100" Text="{Binding AportesId}"/>
-                <Button x:Name="BotonBuscar" Content="Buscar" Margin="5,0" Height="25" Click="BotonBuscar_Click"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Fecha"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <DatePicker Name="Datapicker" Height="25" Width="350" Text="{Binding Fecha}"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Persona"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="PersonaTextBox" Height="25" Width="350" Text="{Binding Persona}"/>
-            </StackPanel>
-            <StackPanel>
-                <Label Content="Concepto"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="ConceptoTextBox" Height="25" Width="350" Text="{Binding Concepto}"/>
-            </StackPanel >
-            <Label Content="Monto"/>
-            <StackPanel Orientation="Horizontal">
-                <TextBox x:Name="MontoTextBox" Height="25" Width="350" Text="{Binding Monto}"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="BotonNuevo" Content="Nuevo" Height="40" Width="50" Margin="0,10" Click="BotonNuevo_Click"/>
-                <Button x:Name="BotonGuardar" Content="Guardar" Height="40" Margin="10,0" Click="BotonGuardar_Click"/>
-                <Button x:Name="BotonEliminar" Content="Eliminar" Height="40" Click="BotonEliminar_Click"/>
+        <StackPanel Orientation="Horizontal" Margin="10">
+            <StackPanel Orientation="Vertical">
+                <Label Content="Aportes Id"/>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox x:Name="IdTextBox" Height="20" Width="90" Text="{Binding AporteId}"/>
+                    <Button x:Name="BuscarButton" Margin="10" Click="BuscarButton_Click">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Buscar"/>
+                            <Image Source="/Resources/Buscar.png" Height="20" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Fecha"/>
+                    <DatePicker x:Name="FechaDatePicker" SelectedDate="{Binding Fecha}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Persona"/>
+                    <TextBox x:Name="PersonaTextBox" Height="20" Width="300" Text="{Binding Persona}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Concepto"/>
+                    <TextBox x:Name="ConceptoTextBox" Height="20" Width="300" Text="{Binding Concepto}"/>
+                </StackPanel>
+                <StackPanel Orientation="Vertical">
+                    <Label Content="Monto"/>
+                    <TextBox x:Name="MontoTextBox" Height="20" Width="300" Text="{Binding Monto}"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="5, 15">
+                    <Button x:Name="NuevoButton" Height="40" Width="80" Click="NuevoButton_Click" Margin="10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Nuevo"/>
+                            <Image Source="/Resources/Nuevo.png" Height="20" HorizontalAlignment="Left" />
+                        </StackPanel>
+                    </Button>
+                    <Button x:Name="GuardarButton" Height="40" Width="80" Click="GuardarButton_Click" Margin="10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Guardar"/>
+                            <Image Source="/Resources/Guardar.png" Height="20" HorizontalAlignment="Left"/>
+                        </StackPanel>
+
+                    </Button>
+                    <Button x:Name="EliminarButton" Height="40" Width="80" Click="EliminarButton_Click" Margin="10,0">
+                        <StackPanel Orientation="Horizontal">
+                            <Label Content="Eliminar"/>
+                            <Image Source="/Resources/Eliminar.png" Height="20" HorizontalAlignment="Left"/>
+                        </StackPanel>
+                    </Button>
+                </StackPanel>
             </StackPanel>
         </StackPanel>
     </Grid>

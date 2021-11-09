@@ -14,10 +14,14 @@ namespace P1_AP1_Pedro_2018_0613.BLL
     {
         public static bool Guardar(Aportes aporte)
         {
-            if (!Existe(aporte.AportesId))
+            if (!Existe(aporte.AporteId))
+            {
                 return Insertar(aporte);
+            }
             else
+            {
                 return Modificar(aporte);
+            }
         }
 
         private static bool Insertar(Aportes aporte)
@@ -112,7 +116,7 @@ namespace P1_AP1_Pedro_2018_0613.BLL
 
             try
             {
-                encontrado = contexto.Aportes.Any(e => e.AportesId == id);
+                encontrado = contexto.Aportes.Any(e => e.AporteId == id);
             }
             catch (Exception)
             {

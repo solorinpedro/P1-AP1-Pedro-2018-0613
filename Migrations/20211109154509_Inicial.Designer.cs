@@ -9,7 +9,7 @@ using P1_AP1_Pedro_2018_0613.DAL;
 namespace P1_AP1_Pedro_2018_0613.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211005162556_Inicial")]
+    [Migration("20211109154509_Inicial")]
     partial class Inicial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -20,7 +20,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
 
             modelBuilder.Entity("P1_AP1_Pedro_2018_0613.Entidades.Aportes", b =>
                 {
-                    b.Property<int>("AportesId")
+                    b.Property<int>("AporteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -36,7 +36,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
                     b.Property<string>("Persona")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AportesId");
+                    b.HasKey("AporteId");
 
                     b.ToTable("Aportes");
                 });

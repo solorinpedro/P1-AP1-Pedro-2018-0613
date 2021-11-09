@@ -11,7 +11,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
                 name: "Aportes",
                 columns: table => new
                 {
-                    AportesId = table.Column<int>(type: "INTEGER", nullable: false)
+                    AporteId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     Fecha = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Persona = table.Column<string>(type: "TEXT", nullable: true),
@@ -20,7 +20,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Aportes", x => x.AportesId);
+                    table.PrimaryKey("PK_Aportes", x => x.AporteId);
                 });
         }
 

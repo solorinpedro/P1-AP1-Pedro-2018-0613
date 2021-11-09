@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:P1_AP1_Pedro_2018_0613"
         mc:Ignorable="d"
-        Title="MainWindow" Height="250" Width="500">
+        Title="Menu Principal" Height="250" Width="400">
     <Grid>
         <StackPanel>
             <Menu>
@@ -13,8 +13,10 @@
                     <MenuItem x:Name="AportesName" Header="Aportes" Click="AportesName_Click">
 
                     </MenuItem>
-                    <MenuItem x:Name="Consultar" Header ="Consultas" Click="Consultar_Click">
-                    </MenuItem>
+                  
+                </MenuItem>
+                <MenuItem x:Name="ConsultarAportes" Header="Consultar" Click="ConsultarAportes_Click">
+                    
                 </MenuItem>
             </Menu>
         </StackPanel>

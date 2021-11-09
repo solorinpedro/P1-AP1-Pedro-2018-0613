@@ -1,4 +1,5 @@
 ﻿using P1_AP1_Pedro_2018_0613.Entidades;
+using P1_AP1_Pedro_2018_0613.UI.Consultas;
 using P1_AP1_Pedro_2018_0613.UI.Registros;
 using System;
 using System.Collections.Generic;
@@ -31,6 +32,12 @@ namespace P1_AP1_Pedro_2018_0613
         {
             rAportes aporte = new rAportes();
             aporte.Show();
+        }
+
+        private void ConsultarAportes_Click(object sender, RoutedEventArgs e)
+        {
+            cAportes consultas = new cAportes();
+            consultas.Show();
         }
     }
 }

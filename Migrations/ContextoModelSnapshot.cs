@@ -18,7 +18,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
 
             modelBuilder.Entity("P1_AP1_Pedro_2018_0613.Entidades.Aportes", b =>
                 {
-                    b.Property<int>("AportesId")
+                    b.Property<int>("AporteId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
@@ -34,7 +34,7 @@ namespace P1_AP1_Pedro_2018_0613.Migrations
                     b.Property<string>("Persona")
                         .HasColumnType("TEXT");
 
-                    b.HasKey("AportesId");
+                    b.HasKey("AporteId");
 
                     b.ToTable("Aportes");
                 });
